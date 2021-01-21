@@ -8,7 +8,8 @@
 - **[Installation Instructions](#installation-instructions)**
   - [Prerequisites](#prerequisites)
   - [Message Generation](#message-generation)
-  - [Client in ROS1](#client-in-ros1)
+  - [Client in ROS1 for Ubuntu 18.04](#client-in-ros1-for-ubuntu-18.04)
+  - [Client in ROS1 for Ubuntu 20.04](#client-in-ros1-for-ubuntu-20.04)
   - [Server in ROS2](#server-in-ros2)
 - **[Examples](#examples)**
   - [Barebones Example](#barebones-example)
