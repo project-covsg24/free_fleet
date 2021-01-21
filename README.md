@@ -34,7 +34,24 @@ Cheers.
 
 ## Installation Instructions
 
-### Prerequisites
+### Prerequisites for Ubuntu 18.04
+
+* [Ubuntu 18.04 LTS](https://releases.ubuntu.com/18.04/)
+* [ROS1 - Melodic](http://wiki.ros.org/melodic)
+
+Install all non-ROS prerequisite packages,
+
+```
+sudo apt update && sudo apt install \
+  git wget \
+  python-rosdep \
+  python-catkin-tools \
+  python3-vcstool \
+  python3-colcon-common-extensions \
+  maven default-jdk   # CycloneDDS dependencies
+```
+
+### Prerequisites for Ubuntu 20.04
 
 * [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
 * [ROS1 - Noetic](https://wiki.ros.org/noetic)
@@ -48,7 +65,7 @@ sudo apt update && sudo apt install \
   python3-rosdep \
   python3-vcstool \
   python3-colcon-common-extensions \
-  # maven default-jdk   # Uncomment to install dependencies for message generation
+  maven default-jdk   #To install dependencies for message generation
 ```
 
 </br>
@@ -63,7 +80,34 @@ Message generation via `FleetMessages.idl` is done using `dds_idlc` from `Cyclon
 
 </br>
 
-### Client in ROS1
+### Client in ROS1 for Ubuntu 18.04
+
+```bash
+mkdir -p ~/client_ws/src
+cd ~/client_ws/src
+git clone https://github.com/osrf/free_fleet
+git clone https://github.com/eclipse-cyclonedds/cyclonedds
+```
+
+Install all the dependencies through `rosdep`,
+
+```
+cd ~/client_ws
+source /opt/ros/melodic/setup.bash
+rosdep update
+rosdep install --from-paths src --ignore-src -y -r \
+  --skip-keys="rmf_fleet_msgs ament_lint_common rclpy rclcpp rosidl_default_generators ament_cmake builtin_interfaces"
+```
+
+Source ROS1 and build,
+
+```
+cd ~/client_ws
+source /opt/ros/melodic/setup.bash
+catkin build
+```
+
+### Client in ROS1 for Ubuntu 20.04
 
 Start a new ROS1 workspace, and pull in the necessary repositories,
 
@@ -131,7 +175,8 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=RELEASE
 This example emulates a running robot and also a running free fleet server,
 
 ```bash
-source ~/client_ws/install/setup.bash
+source ~/client_ws/install/setup.bash #For ROS1 Noetic
+source ~/client_ws/devel/setup.bash   #For ROS1 Melodic
 roslaunch ff_examples_ros1 fake_client.launch
 ```
 
@@ -159,6 +204,16 @@ Before starting these examples, remember to install all the prerequisites accord
 
 Additional packages are required for this example, clone in additional packages into the client workspace and install the required dependencies,
 
+#### Installation for Ubuntu 18.04
+
+```
+cd ~/client_ws/src
+git clone https://github.com/ROBOTIS-GIT/turtlebot3.git
+sudo apt install ros-melodic-gazebo-ros-pkgs ros-melodic-dwa-local-planner
+```
+
+#### Installation for Ubuntu 20.04
+
 ** Note, due to changes in `robot_state_publisher` for `noetic`, the examples will not work with the main packages, hence the links to multiple forks. The instructions will be updated once the merges are complete.
 
 ```bash
@@ -170,10 +225,13 @@ git clone https://github.com/aaronchongth/turtlebot3_simulations -b noetic-devel
 sudo apt install ros-noetic-gazebo-ros-pkgs ros-noetic-dwa-local-planner
 ```
 
+#### Launching the demos:
+
 Launch the basic simulation of a single Turtlebot3, with a free fleet client attached to it, by sourcing the client workspace and launching the provided example launch file,
 
 ```bash
-source ~/client_ws/install/setup.bash
+source ~/client_ws/install/setup.bash #For ROS1 Noetic
+source ~/client_ws/devel/setup.bash   #For ROS1 Melodic
 export TURTLEBOT3_MODEL=burger; roslaunch ff_examples_ros1 turtlebot3_world_ff.launch
 ```
 
