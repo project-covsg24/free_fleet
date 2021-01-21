@@ -6,7 +6,8 @@
 
 - **[About](#About)**
 - **[Installation Instructions](#installation-instructions)**
-  - [Prerequisites](#prerequisites)
+  - [Prerequisites for Ubuntu 18.04](#prerequisites-for-ubuntu-18.04)
+  - [Prerequisites for Ubuntu 20.04](#prerequisites-for-ubuntu-20.04)
   - [Message Generation](#message-generation)
   - [Client in ROS1 for Ubuntu 18.04](#client-in-ros1-for-ubuntu-18.04)
   - [Client in ROS1 for Ubuntu 20.04](#client-in-ros1-for-ubuntu-20.04)
