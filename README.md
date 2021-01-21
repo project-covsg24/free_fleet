@@ -6,11 +6,9 @@
 
 - **[About](#About)**
 - **[Installation Instructions](#installation-instructions)**
-  - [Prerequisites for Ubuntu 18.04](#prerequisites-for-ubuntu-18.04)
-  - [Prerequisites for Ubuntu 20.04](#prerequisites-for-ubuntu-20.04)
+  - [Prerequisites](#prerequisites)
   - [Message Generation](#message-generation)
-  - [Client in ROS1 for Ubuntu 18.04](#client-in-ros1-for-ubuntu-18.04)
-  - [Client in ROS1 for Ubuntu 20.04](#client-in-ros1-for-ubuntu-20.04)
+  - [Client in ROS1](#client-in-ros1)
   - [Server in ROS2](#server-in-ros2)
 - **[Examples](#examples)**
   - [Barebones Example](#barebones-example)
@@ -36,7 +34,9 @@ Cheers.
 
 ## Installation Instructions
 
-### Prerequisites for Ubuntu 18.04
+### Prerequisites
+
+#### Prerequisites for Ubuntu 18.04
 
 * [Ubuntu 18.04 LTS](https://releases.ubuntu.com/18.04/)
 * [ROS1 - Melodic](http://wiki.ros.org/melodic)
@@ -53,7 +53,7 @@ sudo apt update && sudo apt install \
   maven default-jdk   # CycloneDDS dependencies
 ```
 
-### Prerequisites for Ubuntu 20.04
+#### Prerequisites for Ubuntu 20.04
 
 * [Ubuntu 20.04 LTS](https://releases.ubuntu.com/20.04/)
 * [ROS1 - Noetic](https://wiki.ros.org/noetic)
@@ -82,7 +82,9 @@ Message generation via `FleetMessages.idl` is done using `dds_idlc` from `Cyclon
 
 </br>
 
-### Client in ROS1 for Ubuntu 18.04
+### Client in ROS1
+
+#### Client in ROS1 for Ubuntu 18.04
 
 ```bash
 mkdir -p ~/client_ws/src
@@ -109,7 +111,7 @@ source /opt/ros/melodic/setup.bash
 catkin build
 ```
 
-### Client in ROS1 for Ubuntu 20.04
+#### Client in ROS1 for Ubuntu 20.04
 
 Start a new ROS1 workspace, and pull in the necessary repositories,
 
